@@ -228,6 +228,8 @@ public class PageFetcher extends Configurable {
       // Applying Politeness delay
       synchronized (mutex) {
           long now = (new Date()).getTime();
+          logger.error(config.getPolitnessMaxRange());
+          logger.error(config.getPolitnessMinRange());
           int randomNumber = new Random().nextInt(config.getPolitnessMaxRange() - config.getPolitnessMinRange()) + config.getPolitnessMinRange();
           
           if (now - lastFetchTime < randomNumber) {
